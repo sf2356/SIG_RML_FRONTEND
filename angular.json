@@ -27,6 +27,8 @@
               }
             ],
             "styles": [
+             "node_modules/boxicons/css/boxicons.min.css",
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
             ],
             "scripts": [],
@@ -90,6 +92,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -97,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "044a4442-ea10-43df-a365-186d5818eb9e"
   }
 }
