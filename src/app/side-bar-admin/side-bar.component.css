@@ -36,6 +36,12 @@
   color: white;
   border-radius: 5px;
 }
+.nav-list a.active{
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
 .sidebar.collapsed{
   width: 0px;
   opacity: 0;

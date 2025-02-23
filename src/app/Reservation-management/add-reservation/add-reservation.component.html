@@ -1,0 +1,42 @@
+<form class="row g-3" style="width: 100%; align-items: center;justify-content: center; " (ngSubmit)="addReservation()">
+  <div class="row" style=" justify-content: center; align-items: center;margin-bottom: 15px; font-weight: bold;">
+
+  <div class="col-md-4">
+    <label for="inputEmail4" class="form-label">UFR</label>
+    <input type="text" name="ufr" [(ngModel)]="reservation.ufr" class="form-control" id="inputUfr">
+  </div>
+  <div class="col-md-4">
+    <label for="inputPassword4" class="form-label">Filière</label>
+    <input type="text" name="filiere" [(ngModel)]="reservation.filiere" class="form-control" id="inputPassword4">
+  </div>
+</div>
+
+  <div class="row" style=" justify-content: center;align-items: center;font-weight: bold;">
+    <div class="col-md-4">
+      <label for="inputEmail4" class="form-label">Start Date</label>
+      <input type="datetime-local" name="startDate" [(ngModel)]="reservation.startDate" class="form-control" id="inputEmail4">
+    </div>
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">End Date</label>
+      <input type="datetime-local" name="endDate" [(ngModel)]="reservation.endDate" class="form-control" id="inputPassword4">
+    </div>
+  </div>
+
+  <div class="col-8" style="font-weight: bold;">
+    <label for="inputDescription" class="form-label" style="margin-left: 20px;">Description</label>
+    <textarea class="form-control" name="description" [(ngModel)]="reservation.description" placeholder="Description de la reservation" id="floatingTextarea2" style="height: 150px;width: 90%;margin-left: 2%; "></textarea>
+  </div>
+<div class="list_check" >
+  <div class="mb-3" style="justify-content: center;align-items: center;width: 100%;">
+    <label for="inputDescription" class="form-label" style="margin-left: 20px;text-align: center;font-weight: bold;">Cochez les equipements à reserver</label>
+    <div *ngFor="let equip of equipments">
+      <input type="checkbox"  [value]="equip.id" (change)="toggleEquipmentSelection($event,equip.id)"> {{ equip.name }}
+    </div>
+  </div>
+</div>
+  <div class="button_submit" >
+    <button type="reset" class="btn btn-danger">Annuler</button>
+    <button type="submit" class="btn btn-success">Confirmer</button>
+  </div>
+</form>
+

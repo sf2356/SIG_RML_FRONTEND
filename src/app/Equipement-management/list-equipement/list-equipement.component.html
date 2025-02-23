@@ -1,0 +1,106 @@
+<body ng-controller="OffresController">
+
+  <div class="container mt-4">
+      <h2 class="text-center mt-2">Les Equipements</h2>
+
+      <div class="flex justify-between items-center mb-4 list_button">
+      <input type="text" placeholder="rechercher un Equipement...." class="border px-3 py-2 rounded button_search">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Ajouter un Equipement</button>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter un Equipement</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form (ngSubmit)="addEquipment()" #labForm="ngForm">
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Nom de l'Equipement:</label>
+                <input type="text" class="form-control" id="laboratory-name" name="name" [(ngModel)]="equipment.name">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Quantité disponible</label>
+                <input type="text" class="form-control" id="laboratory-name" name="quantity" [(ngModel)]="equipment.quantity">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Type d'Equipement</label>
+                <input type="text" class="form-control" id="laboratory-name" name="type" [(ngModel)]="equipment.type">
+              </div>
+              <div class="mb-3">
+                <label for="laboratory" class="form-label">Laboratoire</label>
+                <select class="form-control" id="laboratory" [(ngModel)]="equipment.laboratoryName" name="laboratory" required>
+                  <option value="0" disabled>Sélectionnez un laboratoire</option>
+                  <option *ngFor="let lab of laboratories" [value]="lab.id">{{ lab.name }}</option>
+                </select>
+              </div>
+          <div class="modal-footer">
+            <button type="cancel" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+            <button type="submit" class="btn btn-success" [disabled]="labForm.invalid">Ajouter</button>
+          </div>
+          </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <table class="table table-bordered mt-3">
+      <thead>
+          <tr>
+              <th>Numero</th>
+              <th>Nom</th>
+              <th>Type</th>
+              <th>Quantité</th>
+              <th>Laboratoire</th>
+
+
+              <th class=" text-center " colspan="2">Actions</th> <!-- Colonne fusionnée -->
+  </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let equipment of equipments">
+              <td>{{equipment.id}}</td>
+              <td>{{equipment.name}}</td>
+              <td>{{equipment.type}}</td>
+              <td>{{equipment.quantity}}</td>
+              <td>{{equipment.laboratoryName}}</td>
+              <td class=" mx-auto p-2" style="text-align: center;">
+                <button  class=" border border-0 bg-warning" >
+                  <i class="bx bx-edit "></i>
+                </button>
+              </td>
+              <td style="text-align: center; ">
+                <button  class=" border-0 bg-danger">
+                  <i class="bx bx-trash"></i>
+                </button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+  <nav aria-label="Page navigation example" style="justify-content: center; align-items: center; width: 100%;">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <script src="app.js"></script>
+</body>

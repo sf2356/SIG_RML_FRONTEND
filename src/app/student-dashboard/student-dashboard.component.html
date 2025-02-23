@@ -1,0 +1,9 @@
+<div class="app-container">
+  <app-sidebar-student [isOpen]="sideBarOpen"></app-sidebar-student>
+  <div class="main-content" [ngClass]="{'collapsed': !sideBarOpen}">
+    <app-header (toggleSidebarForMe)="toggleSidebar()"></app-header>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

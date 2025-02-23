@@ -1,0 +1,87 @@
+<body ng-controller="OffresController">
+
+  <div class="container mt-4">
+      <h2 class="text-center mt-2">Les laboratoires</h2>
+
+      <div class="flex justify-between items-center mb-4 list_button">
+      <input type="text" placeholder="rechercher un laboratoire...." class="border px-3 py-2 rounded button_search">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Ajouter un laboratoire</button>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter un laboratoire</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form (ngSubmit)="addLaboratory()" #labForm="ngForm">
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Nom du laboratoire:</label>
+                <input type="text" class="form-control" id="laboratory-name" name="name" [(ngModel)]="laboratory.name">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Location:</label>
+                <input type="text" class="form-control" id="laboratory-location" name="location" [(ngModel)]="laboratory.location">
+              </div>
+          <div class="modal-footer">
+            <button type="cancel" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+            <button type="submit" class="btn btn-success" [disabled]="labForm.invalid">Ajouter</button>
+          </div>
+          </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+      <table class="table table-bordered mt-3">
+          <thead>
+              <tr>
+                  <th>Numero</th>
+                  <th>Nom</th>
+                  <th>Location</th>
+                  <th class=" text-center " colspan="2">Actions</th> <!-- Colonne fusionnée -->
+      </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let laboratory of laboratories">
+                  <td>{{laboratory.id}}</td>
+                  <td>{{laboratory.name}}</td>
+                  <td>{{laboratory.location}}</td>
+                  <td class=" mx-auto p-2" style="text-align: center;">
+                    <button  class=" border border-0 bg-warning" >
+                      <i class="bx bx-edit "></i>
+                    </button>
+                  </td>
+                  <td style="text-align: center; ">
+                    <button  class=" border-0 bg-danger">
+                      <i class="bx bx-trash"></i>
+                    </button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <nav aria-label="Page navigation example" style="justify-content: center; align-items: center; width: 100%;">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <script src="app.js"></script>
+</body>

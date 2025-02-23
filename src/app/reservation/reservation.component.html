@@ -1,0 +1,51 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow-lg" style="width: 500px;">
+    <h3 class="text-center mb-4">Réservation de Matériel</h3>
+    <form>
+
+      <!-- Nom de l'étudiant -->
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom complet</label>
+        <input type="text" class="form-control" id="nom" name="nom" required>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email universitaire</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+
+      <!-- Sélection du matériel -->
+      <div class="mb-3">
+        <label for="materiel" class="form-label">Matériel à réserver</label>
+        <select class="form-select" id="materiel" name="materiel" required>
+          <option value="">Sélectionnez un matériel</option>
+          <option [value]="1">1</option>
+          <option [value]="2">2</option>
+          <option [value]="3">3</option>
+        </select>
+      </div>
+
+      <!-- Date de réservation -->
+      <div class="mb-3">
+        <label for="date" class="form-label">Date de réservation</label>
+        <input type="date" class="form-control" id="date" name="dateReservation" required>
+      </div>
+
+      <!-- Heure de réservation -->
+      <div class="mb-3">
+        <label for="heure" class="form-label">Heure de réservation</label>
+        <input type="time" class="form-control" id="heure" name="heureReservation" required>
+      </div>
+
+      <!-- Motif -->
+      <div class="mb-3">
+        <label for="motif" class="form-label">Motif</label>
+        <textarea class="form-control" id="motif" rows="3" name="motif" required></textarea>
+      </div>
+
+      <!-- Bouton de réservation -->
+      <button type="submit" class="btn btn-primary w-100">Réserver</button>
+    </form>
+  </div>
+</div>
